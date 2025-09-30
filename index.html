@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" data-global-theme="clear-seas-ultimate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clear Seas Solutions - Revolutionary AI, Maritime Autonomy, and 4D Geometric Processing">
+    <title>Clear Seas Solutions - Navigate the Future</title>
+
+    <link rel="stylesheet" href="styles/clear-seas-tokens.css">
+    <link rel="stylesheet" href="styles/clear-seas-ultimate.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body data-page-state="hero-active" data-scroll-mode="orthogonal">
+
+    <!-- Holographic Background Field -->
+    <div class="holographic-background-field">
+        <div class="field-layer field-primary"></div>
+        <div class="field-layer field-secondary"></div>
+        <div class="field-layer field-tertiary"></div>
+        <div class="field-scanline"></div>
+        <div class="field-grid"></div>
+    </div>
+
+    <!-- Particle System Background -->
+    <canvas id="particle-field-canvas" class="particle-field-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <span class="brand-icon">🌊</span>
+                <span class="brand-text">Clear Seas Solutions</span>
+            </div>
+            <div class="nav-links">
+                <a href="#orthogonal-hero" class="nav-link active">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cta">Let's Navigate</button>
+        </div>
+    </nav>
+
+    <!-- Orthogonal Hero Section -->
+    <section id="orthogonal-hero" class="hero-section">
+        <div class="hero-container" data-active-index="0">
+
+            <!-- Card 1: Maritime AI & Autonomous Systems -->
+            <div class="hero-card focused"
+                 data-service="maritime-ai"
+                 data-vib34d="quantum"
+                 data-card-index="0"
+                 data-destruction="quantum">
+
+                <!-- VIB34D WebGL Visualizer -->
+                <canvas class="vib34d-tilt-canvas" id="vib34d-maritime"></canvas>
+
+                <!-- VIB34D Accent Layer -->
+                <canvas class="vib34d-accent-canvas" id="vib34d-maritime-accent"></canvas>
+
+                <!-- Portal Text Visualizer -->
+                <div class="portal-text-visualizer" id="portal-maritime"></div>
+
+                <!-- Card Content -->
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon maritime-icon">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <path d="M50 20 L80 80 L20 80 Z" class="icon-path"/>
+                                <circle cx="50" cy="50" r="25" class="icon-circle"/>
+                            </svg>
+                        </div>
+                        <div class="card-category">Autonomous Systems</div>
+                    </div>
+                    <h2 class="card-title">Maritime AI Navigation</h2>
+                    <p class="card-description">Revolutionary autonomous vessel systems with real-time spatial intelligence and collision-free routing algorithms</p>
+
+                    <div class="card-features">
+                        <div class="feature-badge">AI Pathfinding</div>
+                        <div class="feature-badge">Fleet Coordination</div>
+                        <div class="feature-badge">Real-Time Analytics</div>
+                    </div>
+
+                    <button class="card-cta">
+                        <span class="cta-text">Explore Maritime AI</span>
+                        <span class="cta-arrow">→</span>
+                    </button>
+                </div>
+
+                <!-- Card Glow Effects -->
+                <div class="card-glow card-glow-primary"></div>
+                <div class="card-glow card-glow-secondary"></div>
+                <div class="card-border-glow"></div>
+            </div>
+
+            <!-- Card 2: 4D Geometric Processing -->
+            <div class="hero-card background"
+                 data-service="4d-visualization"
+                 data-vib34d="holographic"
+                 data-card-index="1"
+                 data-destruction="holographic">
+
+                <canvas class="vib34d-tilt-canvas" id="vib34d-4d"></canvas>
+                <canvas class="vib34d-accent-canvas" id="vib34d-4d-accent"></canvas>
+                <div class="portal-text-visualizer" id="portal-4d"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon viz-icon">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <rect x="25" y="25" width="50" height="50" class="icon-path"/>
+                                <rect x="35" y="35" width="30" height="30" class="icon-circle"/>
+                            </svg>
+                        </div>
+                        <div class="card-category">Higher Dimensions</div>
+                    </div>
+                    <h2 class="card-title">4D Polytopal Projection</h2>
+                    <p class="card-description">Breakthrough geometric processing for higher-dimensional data visualization and interactive hypercube exploration</p>
+
+                    <div class="card-features">
+                        <div class="feature-badge">WebGL Shaders</div>
+                        <div class="feature-badge">Hypercube Math</div>
+                        <div class="feature-badge">Real-Time Rendering</div>
+                    </div>
+
+                    <button class="card-cta">
+                        <span class="cta-text">Enter the 4th Dimension</span>
+                        <span class="cta-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="card-glow card-glow-primary"></div>
+                <div class="card-glow card-glow-secondary"></div>
+                <div class="card-border-glow"></div>
+            </div>
+
+            <!-- Card 3: AI Strategy & Consulting -->
+            <div class="hero-card background"
+                 data-service="ai-consulting"
+                 data-vib34d="quantum"
+                 data-card-index="2"
+                 data-destruction="quantum">
+
+                <canvas class="vib34d-tilt-canvas" id="vib34d-ai"></canvas>
+                <canvas class="vib34d-accent-canvas" id="vib34d-ai-accent"></canvas>
+                <div class="portal-text-visualizer" id="portal-ai"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon ai-icon">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <circle cx="50" cy="30" r="8" class="icon-circle"/>
+                                <circle cx="30" cy="60" r="8" class="icon-circle"/>
+                                <circle cx="70" cy="60" r="8" class="icon-circle"/>
+                                <path d="M50 30 L30 60 M50 30 L70 60 M30 60 L70 60" class="icon-path"/>
+                            </svg>
+                        </div>
+                        <div class="card-category">Strategic Intelligence</div>
+                    </div>
+                    <h2 class="card-title">AI Transformation</h2>
+                    <p class="card-description">Strategic guidance for AI adoption with implementation roadmaps, team enablement, and technology stack optimization</p>
+
+                    <div class="card-features">
+                        <div class="feature-badge">ML Strategy</div>
+                        <div class="feature-badge">Team Training</div>
+                        <div class="feature-badge">Tech Stack</div>
+                    </div>
+
+                    <button class="card-cta">
+                        <span class="cta-text">Transform with AI</span>
+                        <span class="cta-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="card-glow card-glow-primary"></div>
+                <div class="card-glow card-glow-secondary"></div>
+                <div class="card-border-glow"></div>
+            </div>
+
+            <!-- Card 4: Data Architecture -->
+            <div class="hero-card background"
+                 data-service="data-architecture"
+                 data-vib34d="holographic"
+                 data-card-index="3"
+                 data-destruction="holographic">
+
+                <canvas class="vib34d-tilt-canvas" id="vib34d-data"></canvas>
+                <canvas class="vib34d-accent-canvas" id="vib34d-data-accent"></canvas>
+                <div class="portal-text-visualizer" id="portal-data"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon data-icon">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <rect x="20" y="20" width="60" height="15" class="icon-path"/>
+                                <rect x="20" y="42" width="60" height="15" class="icon-path"/>
+                                <rect x="20" y="64" width="60" height="15" class="icon-path"/>
+                            </svg>
+                        </div>
+                        <div class="card-category">Infrastructure</div>
+                    </div>
+                    <h2 class="card-title">Scalable Data Systems</h2>
+                    <p class="card-description">Cloud-native data pipelines with real-time processing, analytics dashboards, and governance frameworks</p>
+
+                    <div class="card-features">
+                        <div class="feature-badge">Cloud Infrastructure</div>
+                        <div class="feature-badge">Real-Time ETL</div>
+                        <div class="feature-badge">Data Governance</div>
+                    </div>
+
+                    <button class="card-cta">
+                        <span class="cta-text">Build Your Platform</span>
+                        <span class="cta-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="card-glow card-glow-primary"></div>
+                <div class="card-glow card-glow-secondary"></div>
+                <div class="card-border-glow"></div>
+            </div>
+
+            <!-- Card 5: Custom Development -->
+            <div class="hero-card background"
+                 data-service="custom-development"
+                 data-vib34d="quantum"
+                 data-card-index="4"
+                 data-destruction="quantum">
+
+                <canvas class="vib34d-tilt-canvas" id="vib34d-custom"></canvas>
+                <canvas class="vib34d-accent-canvas" id="vib34d-custom-accent"></canvas>
+                <div class="portal-text-visualizer" id="portal-custom"></div>
+
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon custom-icon">
+                            <svg viewBox="0 0 100 100" class="icon-svg">
+                                <path d="M30 50 L50 30 L70 50 L50 70 Z" class="icon-path"/>
+                                <circle cx="50" cy="50" r="15" class="icon-circle"/>
+                            </svg>
+                        </div>
+                        <div class="card-category">Bespoke Solutions</div>
+                    </div>
+                    <h2 class="card-title">Custom Engineering</h2>
+                    <p class="card-description">Full-stack development for unique challenges with API design, performance optimization, and legacy modernization</p>
+
+                    <div class="card-features">
+                        <div class="feature-badge">Full-Stack Dev</div>
+                        <div class="feature-badge">API Design</div>
+                        <div class="feature-badge">Optimization</div>
+                    </div>
+
+                    <button class="card-cta">
+                        <span class="cta-text">Discuss Your Vision</span>
+                        <span class="cta-arrow">→</span>
+                    </button>
+                </div>
+
+                <div class="card-glow card-glow-primary"></div>
+                <div class="card-glow card-glow-secondary"></div>
+                <div class="card-border-glow"></div>
+            </div>
+
+        </div>
+
+        <!-- Hero Navigation Controls -->
+        <div class="hero-controls">
+            <button class="hero-nav-btn hero-nav-prev" aria-label="Previous service">
+                <span class="nav-arrow">←</span>
+            </button>
+            <div class="hero-indicators">
+                <div class="hero-indicator active" data-card-index="0"></div>
+                <div class="hero-indicator" data-card-index="1"></div>
+                <div class="hero-indicator" data-card-index="2"></div>
+                <div class="hero-indicator" data-card-index="3"></div>
+                <div class="hero-indicator" data-card-index="4"></div>
+            </div>
+            <button class="hero-nav-btn hero-nav-next" aria-label="Next service">
+                <span class="nav-arrow">→</span>
+            </button>
+        </div>
+
+        <!-- Scroll Hint -->
+        <div class="scroll-hint">
+            <span class="scroll-hint-text">Scroll to navigate services</span>
+            <div class="scroll-arrow-container">
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Expansion Section -->
+    <section id="service-details" class="details-section">
+        <button class="return-button">
+            <span class="return-arrow">←</span>
+            <span class="return-text">Return to Services</span>
+        </button>
+
+        <div class="details-content-container">
+            <!-- Dynamically populated -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">About Clear Seas</div>
+                <h2 class="section-title">Navigate Complex Technology Waters</h2>
+            </div>
+
+            <div class="about-content">
+                <div class="about-lead">
+                    <p class="lead-text">We chart courses through the uncharted territories of AI, autonomous systems, and higher-dimensional mathematics—transforming technological complexity into competitive advantage.</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-block">
+                        <h3 class="block-title">Our Mission</h3>
+                        <p class="block-text">Clear Seas Solutions pioneers breakthrough technologies in maritime AI, 4D geometric processing, and strategic AI consulting. We believe technology should serve humanity's highest aspirations.</p>
+                    </div>
+
+                    <div class="about-block">
+                        <h3 class="block-title">Our Approach</h3>
+                        <p class="block-text">We combine rigorous technical execution with visionary thinking—what we call "Exoditical Philosophy"—where creative chaos becomes structured innovation.</p>
+                    </div>
+
+                    <div class="about-block">
+                        <h3 class="block-title">Our Expertise</h3>
+                        <p class="block-text">Led by Paul Phillips, we bring deep expertise in autonomous systems, WebGL visualization, machine learning, and practical AI implementation at scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Our Work</div>
+                <h2 class="section-title">Portfolio Highlights</h2>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-project="maritime">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">🚢</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">FLO-WT Maritime Platform</h3>
+                        <p class="portfolio-description">AI-powered autonomous vessel navigation with 87% reduction in collision risks</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Autonomous Nav</span>
+                            <span class="tag">Real-Time AI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-project="4d">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">🔮</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">VIB34D Hypercube Engine</h3>
+                        <p class="portfolio-description">Interactive 4D polytope projection system with WebGL shader architecture</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">4D Math</span>
+                            <span class="tag">WebGL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-project="ml">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">🧠</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Parserator AI Platform</h3>
+                        <p class="portfolio-description">Document intelligence and data liberation with multi-modal processing</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Data Liberation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-project="fleet">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">⚡</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Fleet Coordination System</h3>
+                        <p class="portfolio-description">Multi-vessel spatial intelligence with real-time coordination algorithms</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Spatial AI</span>
+                            <span class="tag">Fleet Ops</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-project="viz">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">🌊</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Holographic Viz Engine</h3>
+                        <p class="portfolio-description">Real-time 4D geometric rendering with portal projection effects</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Holographic UI</span>
+                            <span class="tag">Real-Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-project="crystal">
+                    <div class="portfolio-visual">
+                        <div class="portfolio-icon">✨</div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Crystal Grimoire Platform</h3>
+                        <p class="portfolio-description">Metaphysical experience platform with immersive storytelling</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Experience Design</span>
+                            <span class="tag">Immersive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Client Stories</div>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+
+            <div class="testimonials-carousel">
+                <div class="testimonial-card active">
+                    <div class="testimonial-quote">"Clear Seas transformed our maritime operations with autonomous navigation systems that reduced collision risks by 87% while improving route efficiency by 34%. Their technical depth and vision are unmatched."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah Chen</div>
+                            <div class="author-role">CTO, Maritime Logistics Corp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Paul's expertise in 4D geometric processing opened entirely new visualization possibilities we didn't know existed. The hypercube projection system became the cornerstone of our data platform. Truly visionary work."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JR</div>
+                        <div class="author-info">
+                            <div class="author-name">Dr. James Rodriguez</div>
+                            <div class="author-role">Research Director, Data Science Institute</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"The strategic AI consulting we received was exactly what we needed—practical, actionable roadmaps grounded in real-world implementation experience. Clear Seas helped us navigate AI adoption with confidence."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MT</div>
+                        <div class="author-info">
+                            <div class="author-name">Michael Thompson</div>
+                            <div class="author-role">VP of Innovation, TechCorp Global</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button class="testimonial-nav testimonial-prev" aria-label="Previous testimonial">←</button>
+                <div class="testimonial-indicators">
+                    <div class="testimonial-indicator active"></div>
+                    <div class="testimonial-indicator"></div>
+                    <div class="testimonial-indicator"></div>
+                </div>
+                <button class="testimonial-nav testimonial-next" aria-label="Next testimonial">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">Get in Touch</div>
+                <h2 class="section-title">Let's Navigate Together</h2>
+                <p class="section-subtitle">Ready to transform your technology challenges into competitive advantages?</p>
+            </div>
+
+            <div class="contact-content">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name" class="form-label">Your Name</label>
+                            <input type="text" id="contact-name" name="name" class="form-input" placeholder="John Doe" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email" class="form-label">Email Address</label>
+                            <input type="email" id="contact-email" name="email" class="form-input" placeholder="john@company.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-service" class="form-label">Service Interest</label>
+                        <select id="contact-service" name="service" class="form-select">
+                            <option value="">Select a Service</option>
+                            <option value="maritime-ai">Maritime AI & Autonomous Systems</option>
+                            <option value="4d-visualization">4D Geometric Processing</option>
+                            <option value="ai-consulting">AI Strategy & Consulting</option>
+                            <option value="data-architecture">Data Architecture</option>
+                            <option value="custom-development">Custom Development</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message" class="form-label">Tell Us About Your Project</label>
+                        <textarea id="contact-message" name="message" class="form-textarea" rows="6" placeholder="Describe your technology challenge or opportunity..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">
+                        <span class="submit-text">Send Message</span>
+                        <span class="submit-arrow">→</span>
+                    </button>
+                </form>
+
+                <div class="contact-info">
+                    <div class="info-block">
+                        <div class="info-label">Email</div>
+                        <a href="mailto:paul@clearseassolutions.com" class="info-link">paul@clearseassolutions.com</a>
+                    </div>
+                    <div class="info-block">
+                        <div class="info-label">Movement</div>
+                        <a href="https://parserator.com" target="_blank" class="info-link">Join the Exoditical Movement →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="brand-icon">🌊</span>
+                        <span class="brand-text">Clear Seas Solutions</span>
+                    </div>
+                    <p class="footer-tagline">"The Revolution Will Not be in a Structured Format"</p>
+                    <p class="footer-philosophy">Exoditical Philosophy meets Breakthrough Technology</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="column-title">Services</h4>
+                        <a href="#maritime-ai" class="footer-link">Maritime AI</a>
+                        <a href="#4d-visualization" class="footer-link">4D Visualization</a>
+                        <a href="#ai-consulting" class="footer-link">AI Consulting</a>
+                        <a href="#data-architecture" class="footer-link">Data Systems</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="column-title">Company</h4>
+                        <a href="#about" class="footer-link">About</a>
+                        <a href="#portfolio" class="footer-link">Portfolio</a>
+                        <a href="#testimonials" class="footer-link">Testimonials</a>
+                        <a href="#contact" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="column-title">Connect</h4>
+                        <a href="mailto:paul@clearseassolutions.com" class="footer-link">Email</a>
+                        <a href="https://parserator.com" target="_blank" class="footer-link">Parserator</a>
+                        <a href="https://github.com/domusgpt" target="_blank" class="footer-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Paul Phillips - Clear Seas Solutions LLC. All Rights Reserved.</p>
+                <p class="footer-attribution">A Paul Phillips Manifestation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/vib34d-geometric-tilt-system.js"></script>
+    <script src="scripts/orthogonal-hero-ultimate.js"></script>
+    <script src="scripts/particle-field-system.js"></script>
+    <script src="scripts/landing-controller-ultimate.js"></script>
+
+</body>
+</html>
