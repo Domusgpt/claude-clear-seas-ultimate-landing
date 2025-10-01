@@ -15,7 +15,13 @@ This is the ULTIMATE Clear Seas Solutions landing page with fluid perfect pizzaz
 
 ## 🎨 Features
 
-### 🌟 Orthogonal Hero Section
+### 🌟 Orthogonal Hero Section with Scroll Navigation
+- **SCROLL-BASED CARD PROGRESSION** - The main innovation! Scroll within hero section to navigate cards
+  - 120px scroll threshold triggers card transitions
+  - Scroll velocity tracking with momentum decay
+  - Intersection observer ensures scroll only captured when hero is in view
+  - Arrow keys (↑↓ Space) and buttons also work
+  - Natural scroll continues after reaching first/last card
 - **5 Service Cards** progressing through Z-axis depth
 - **VIB34D WebGL Visualizers** - Full 4D geometric rendering with 11 geometry types
 - **Portal Text Visualizers** - Canvas 2D overlays with quantum/holographic effects
