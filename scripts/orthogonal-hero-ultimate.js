@@ -343,41 +343,52 @@ class OrthogonalDepthProgression {
 
     setupScrollHandling() {
         let ticking = false;
+        this.mouseOverHero = false;
+
+        // Track mouse position to know if we're over hero
+        const handleMouseEnter = () => {
+            this.mouseOverHero = true;
+            console.log('🎯 Mouse entered hero - scroll will control cards');
+        };
+
+        const handleMouseLeave = () => {
+            this.mouseOverHero = false;
+            console.log('👋 Mouse left hero - normal scroll enabled');
+        };
+
+        this.heroSection.addEventListener('mouseenter', handleMouseEnter);
+        this.heroSection.addEventListener('mouseleave', handleMouseLeave);
 
         const handleWheel = (e) => {
-            if (!this.isHeroInView || !this.scrollEnabled) return;
+            // ALWAYS prevent scroll if mouse is over hero
+            if (!this.mouseOverHero || !this.scrollEnabled) return;
 
-            // Only capture scroll if we're in the hero section
+            // Prevent page scroll entirely when over hero
+            e.preventDefault();
+            e.stopPropagation();
+
             const delta = e.deltaY || e.detail || e.wheelDelta;
 
-            // Prevent default only if we can navigate
-            const canGoNext = this.currentIndex < this.cards.length - 1 && delta > 0;
-            const canGoPrev = this.currentIndex > 0 && delta < 0;
+            // Update scroll accumulator
+            this.scrollAccumulator += delta;
 
-            if (canGoNext || canGoPrev) {
-                e.preventDefault();
+            // Calculate velocity
+            const now = performance.now();
+            const timeDelta = Math.max(1, now - this.lastScrollTime);
+            this.scrollVelocity = delta / timeDelta;
+            this.lastScrollTime = now;
+            this.lastScrollDirection = delta >= 0 ? 1 : -1;
 
-                // Update scroll accumulator
-                this.scrollAccumulator += delta;
+            // Update momentum
+            const velocityMagnitude = Math.abs(this.scrollVelocity);
+            this.scrollMomentum = Math.max(this.scrollMomentum, Math.min(1, velocityMagnitude / 2));
 
-                // Calculate velocity
-                const now = performance.now();
-                const timeDelta = Math.max(1, now - this.lastScrollTime);
-                this.scrollVelocity = delta / timeDelta;
-                this.lastScrollTime = now;
-                this.lastScrollDirection = delta >= 0 ? 1 : -1;
-
-                // Update momentum
-                const velocityMagnitude = Math.abs(this.scrollVelocity);
-                this.scrollMomentum = Math.max(this.scrollMomentum, Math.min(1, velocityMagnitude / 2));
-
-                if (!ticking) {
-                    this.scrollAnimationFrame = requestAnimationFrame(() => {
-                        this.handleScrollProgression();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
+            if (!ticking) {
+                this.scrollAnimationFrame = requestAnimationFrame(() => {
+                    this.handleScrollProgression();
+                    ticking = false;
+                });
+                ticking = true;
             }
         };
 
@@ -386,23 +397,19 @@ class OrthogonalDepthProgression {
 
         // Store cleanup
         this._wheelHandler = handleWheel;
+        this._mouseEnterHandler = handleMouseEnter;
+        this._mouseLeaveHandler = handleMouseLeave;
     }
 
     setupIntersectionObserver() {
-        // Detect when hero section is in view
+        // No longer needed - we use mouseenter/leave instead
+        // But keep for potential future use
         this.heroSectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 this.isHeroInView = entry.isIntersecting;
-
-                // Reset scroll accumulator when entering/leaving
-                if (!this.isHeroInView) {
-                    this.scrollAccumulator = 0;
-                    this.scrollVelocity = 0;
-                    this.scrollMomentum = 0;
-                }
             });
         }, {
-            threshold: 0.5 // Hero must be 50% visible
+            threshold: 0.1
         });
 
         this.heroSectionObserver.observe(this.heroSection);
@@ -458,7 +465,8 @@ class OrthogonalDepthProgression {
 
     setupKeyboardControls() {
         this._keydownHandler = (event) => {
-            if (!this.isHeroInView) return;
+            // Only respond to keys if mouse is over hero
+            if (!this.mouseOverHero) return;
 
             switch (event.code) {
                 case 'ArrowDown':
@@ -500,6 +508,14 @@ class OrthogonalDepthProgression {
         // Cleanup scroll handler
         if (this._wheelHandler) {
             this.heroSection.removeEventListener('wheel', this._wheelHandler);
+        }
+
+        // Cleanup mouse handlers
+        if (this._mouseEnterHandler) {
+            this.heroSection.removeEventListener('mouseenter', this._mouseEnterHandler);
+        }
+        if (this._mouseLeaveHandler) {
+            this.heroSection.removeEventListener('mouseleave', this._mouseLeaveHandler);
         }
 
         // Cleanup keyboard handler
