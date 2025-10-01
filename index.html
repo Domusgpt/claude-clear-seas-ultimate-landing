@@ -290,15 +290,123 @@
         </div>
     </section>
 
-    <!-- Service Details Expansion Section -->
-    <section id="service-details" class="details-section">
-        <button class="return-button">
-            <span class="return-arrow">←</span>
-            <span class="return-text">Return to Services</span>
-        </button>
+    <!-- Dynamic Service Content (Changes as you scroll hero) -->
+    <section id="dynamic-content" class="dynamic-content-section" data-active-service="maritime-ai">
+        <div class="content-wrapper">
+            <!-- Maritime AI Content -->
+            <div class="service-content active" data-service="maritime-ai">
+                <div class="service-header">
+                    <span class="service-badge">Autonomous Systems</span>
+                    <h2 class="service-title">Maritime AI Navigation</h2>
+                    <p class="service-subtitle">Pioneering autonomous vessel intelligence</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-detail-card">
+                        <h3>Collision Avoidance</h3>
+                        <p>Real-time pathfinding with spatial intelligence</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Fleet Coordination</h3>
+                        <p>Multi-vessel orchestration and routing</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Weather Integration</h3>
+                        <p>Dynamic route adjustment and optimization</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="details-content-container">
-            <!-- Dynamically populated -->
+            <!-- 4D Visualization Content -->
+            <div class="service-content" data-service="4d-visualization">
+                <div class="service-header">
+                    <span class="service-badge">Higher Dimensions</span>
+                    <h2 class="service-title">4D Polytopal Projection</h2>
+                    <p class="service-subtitle">Breakthrough geometric visualization</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-detail-card">
+                        <h3>WebGL Rendering</h3>
+                        <p>Real-time hypercube projection system</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Interactive Exploration</h3>
+                        <p>Intuitive 4D rotation and slicing</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Mathematical Precision</h3>
+                        <p>Quaternion-based transformations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Consulting Content -->
+            <div class="service-content" data-service="ai-consulting">
+                <div class="service-header">
+                    <span class="service-badge">Strategic Intelligence</span>
+                    <h2 class="service-title">AI Transformation</h2>
+                    <p class="service-subtitle">Enterprise AI adoption strategy</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-detail-card">
+                        <h3>Implementation Roadmaps</h3>
+                        <p>POC to production deployment planning</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Team Enablement</h3>
+                        <p>Training and knowledge transfer programs</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Technology Stack</h3>
+                        <p>Unbiased ML framework evaluation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Architecture Content -->
+            <div class="service-content" data-service="data-architecture">
+                <div class="service-header">
+                    <span class="service-badge">Infrastructure</span>
+                    <h2 class="service-title">Scalable Data Systems</h2>
+                    <p class="service-subtitle">Cloud-native analytics pipelines</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-detail-card">
+                        <h3>Real-Time ETL</h3>
+                        <p>Stream processing with Kafka & Flink</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Analytics Dashboards</h3>
+                        <p>Interactive visualizations and alerts</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Data Governance</h3>
+                        <p>Compliance and lineage tracking</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Engineering Content -->
+            <div class="service-content" data-service="custom-engineering">
+                <div class="service-header">
+                    <span class="service-badge">Innovation</span>
+                    <h2 class="service-title">Custom Engineering</h2>
+                    <p class="service-subtitle">Bespoke technical solutions</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-detail-card">
+                        <h3>Technical Leadership</h3>
+                        <p>Architecture design and mentorship</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Proof of Concepts</h3>
+                        <p>Rapid prototyping and validation</p>
+                    </div>
+                    <div class="service-detail-card">
+                        <h3>Performance Optimization</h3>
+                        <p>Profiling and speed improvements</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

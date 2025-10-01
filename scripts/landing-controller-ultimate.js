@@ -260,6 +260,9 @@ class LandingController {
         const oldCard = this.cards[oldIndex];
         const newCard = this.cards[newIndex];
 
+        // **SWAP DYNAMIC CONTENT AND STYLES**
+        this.updateDynamicContent(newCard);
+
         // Plan dual response
         if (this.responsePlanner) {
             const plan = this.responsePlanner.plan('focus', newCard, oldCard);
@@ -282,6 +285,30 @@ class LandingController {
                 this.particleField.energyBoost(1500, 2.0);
             }
         }
+    }
+
+    updateDynamicContent(card) {
+        const serviceId = card.dataset.service;
+        if (!serviceId) return;
+
+        // Update dynamic content section
+        const dynamicSection = document.getElementById('dynamic-content');
+        if (dynamicSection) {
+            // Change section background/style
+            dynamicSection.dataset.activeService = serviceId;
+        }
+
+        // Swap active service content
+        const allServiceContent = document.querySelectorAll('.service-content');
+        allServiceContent.forEach(content => {
+            if (content.dataset.service === serviceId) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+
+        console.log(`🔄 Content switched to: ${serviceId}`);
     }
 
     applyCardResponse(card, response) {

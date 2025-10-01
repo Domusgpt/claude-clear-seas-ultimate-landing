@@ -1531,3 +1531,165 @@ body {
     }
 }
 
+
+/* =================================
+   DYNAMIC SERVICE CONTENT SECTION
+   ================================= */
+
+.dynamic-content-section {
+    min-height: 100vh;
+    padding: var(--space-32) 0;
+    background: var(--bg-dark);
+    position: relative;
+    transition: background-color var(--duration-slowest) var(--ease-smooth);
+}
+
+/* Service-specific background colors */
+.dynamic-content-section[data-active-service="maritime-ai"] {
+    background: linear-gradient(135deg, #050812 0%, #0a1420 100%);
+}
+
+.dynamic-content-section[data-active-service="4d-visualization"] {
+    background: linear-gradient(135deg, #0f0515 0%, #1a0a25 100%);
+}
+
+.dynamic-content-section[data-active-service="ai-consulting"] {
+    background: linear-gradient(135deg, #08050f 0%, #12 0a1f 100%);
+}
+
+.dynamic-content-section[data-active-service="data-architecture"] {
+    background: linear-gradient(135deg, #050f12 0%, #0a1a25 100%);
+}
+
+.dynamic-content-section[data-active-service="custom-engineering"] {
+    background: linear-gradient(135deg, #0f0812 0%, #1f1525 100%);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+    position: relative;
+}
+
+.service-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: var(--space-8);
+    right: var(--space-8);
+    transform: translateY(30px);
+    transition: all var(--duration-slowest) var(--ease-out-expo);
+    pointer-events: none;
+}
+
+.service-content.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    left: 0;
+    right: 0;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.service-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+}
+
+.service-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-6);
+    background: var(--bg-glass);
+    border: 1px solid var(--clear-seas-cyan);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--clear-seas-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-4);
+}
+
+.service-title {
+    font-size: var(--text-6xl);
+    font-weight: var(--weight-black);
+    color: var(--text-primary);
+    line-height: var(--line-tight);
+    margin-bottom: var(--space-4);
+    text-shadow: var(--glow-cyan);
+}
+
+.service-subtitle {
+    font-size: var(--text-2xl);
+    color: var(--text-secondary);
+    font-weight: var(--weight-light);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.service-detail-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    backdrop-filter: blur(10px) saturate(150%);
+    transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.service-detail-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--clear-seas-cyan);
+    box-shadow: var(--glow-cyan);
+}
+
+.service-detail-card h3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.service-detail-card p {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: var(--line-relaxed);
+}
+
+/* Service-specific accent colors */
+[data-active-service="maritime-ai"] .service-badge,
+[data-active-service="maritime-ai"] .service-title {
+    color: #00d4ff;
+    text-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+}
+
+[data-active-service="4d-visualization"] .service-badge,
+[data-active-service="4d-visualization"] .service-title {
+    color: #ff00ff;
+    text-shadow: 0 0 40px rgba(255, 0, 255, 0.6);
+}
+
+[data-active-service="ai-consulting"] .service-badge,
+[data-active-service="ai-consulting"] .service-title {
+    color: #00ffff;
+    text-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+}
+
+[data-active-service="data-architecture"] .service-badge,
+[data-active-service="data-architecture"] .service-title {
+    color: #c77dff;
+    text-shadow: 0 0 40px rgba(199, 125, 255, 0.6);
+}
+
+[data-active-service="custom-engineering"] .service-badge,
+[data-active-service="custom-engineering"] .service-title {
+    color: #00ff88;
+    text-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+}
