@@ -294,7 +294,7 @@ class AmbientBackgroundField {
     }
 }
 
-// ===== ORTHOGONAL DEPTH PROGRESSION (Simplified for Landing Page) =====
+// ===== ORTHOGONAL DEPTH PROGRESSION (With Scroll-Based Navigation) =====
 
 class OrthogonalDepthProgression {
     constructor(container, options = {}) {
@@ -303,8 +303,22 @@ class OrthogonalDepthProgression {
         this.currentIndex = 0;
         this.isTransitioning = false;
 
-        // Card states map
-        this.cardStates = ['background', 'approaching', 'focused', 'exiting', 'background'];
+        // Scroll accumulator system (from original)
+        this.scrollAccumulator = 0;
+        this.scrollVelocity = 0;
+        this.scrollMomentum = 0;
+        this.scrollThreshold = options.scrollThreshold || 120; // Pixels to scroll for next card
+        this.scrollVelocityNormalizer = options.scrollVelocityNormalizer || 6.2;
+        this.lastScrollDirection = 0;
+        this.lastScrollY = window.scrollY || 0;
+        this.lastScrollTime = performance.now();
+        this.scrollAnimationFrame = null;
+        this.scrollEnabled = true;
+
+        // Hero section detection
+        this.heroSection = container.closest('section') || container;
+        this.heroSectionObserver = null;
+        this.isHeroInView = false;
     }
 
     init() {
@@ -318,6 +332,112 @@ class OrthogonalDepthProgression {
                 card.classList.remove('focused', 'approaching', 'exiting');
             }
         });
+
+        // Setup scroll handling
+        this.setupScrollHandling();
+        this.setupIntersectionObserver();
+        this.setupKeyboardControls();
+
+        console.log('✓ Orthogonal scroll navigation enabled (scroll/arrow keys within hero section)');
+    }
+
+    setupScrollHandling() {
+        let ticking = false;
+
+        const handleWheel = (e) => {
+            if (!this.isHeroInView || !this.scrollEnabled) return;
+
+            // Only capture scroll if we're in the hero section
+            const delta = e.deltaY || e.detail || e.wheelDelta;
+
+            // Prevent default only if we can navigate
+            const canGoNext = this.currentIndex < this.cards.length - 1 && delta > 0;
+            const canGoPrev = this.currentIndex > 0 && delta < 0;
+
+            if (canGoNext || canGoPrev) {
+                e.preventDefault();
+
+                // Update scroll accumulator
+                this.scrollAccumulator += delta;
+
+                // Calculate velocity
+                const now = performance.now();
+                const timeDelta = Math.max(1, now - this.lastScrollTime);
+                this.scrollVelocity = delta / timeDelta;
+                this.lastScrollTime = now;
+                this.lastScrollDirection = delta >= 0 ? 1 : -1;
+
+                // Update momentum
+                const velocityMagnitude = Math.abs(this.scrollVelocity);
+                this.scrollMomentum = Math.max(this.scrollMomentum, Math.min(1, velocityMagnitude / 2));
+
+                if (!ticking) {
+                    this.scrollAnimationFrame = requestAnimationFrame(() => {
+                        this.handleScrollProgression();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+        };
+
+        // Bind wheel event to hero section only
+        this.heroSection.addEventListener('wheel', handleWheel, { passive: false });
+
+        // Store cleanup
+        this._wheelHandler = handleWheel;
+    }
+
+    setupIntersectionObserver() {
+        // Detect when hero section is in view
+        this.heroSectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                this.isHeroInView = entry.isIntersecting;
+
+                // Reset scroll accumulator when entering/leaving
+                if (!this.isHeroInView) {
+                    this.scrollAccumulator = 0;
+                    this.scrollVelocity = 0;
+                    this.scrollMomentum = 0;
+                }
+            });
+        }, {
+            threshold: 0.5 // Hero must be 50% visible
+        });
+
+        this.heroSectionObserver.observe(this.heroSection);
+    }
+
+    handleScrollProgression() {
+        const magnitude = Math.min(1, Math.abs(this.scrollAccumulator) / this.scrollThreshold);
+
+        // Check if threshold exceeded
+        if (Math.abs(this.scrollAccumulator) > this.scrollThreshold) {
+            const direction = this.scrollAccumulator > 0 ? 1 : -1;
+
+            if (direction > 0) {
+                this.next();
+            } else {
+                this.prev();
+            }
+
+            // Reset accumulators
+            this.scrollAccumulator = 0;
+            this.scrollMomentum *= 0.65;
+            this.scrollVelocity *= 0.5;
+        } else {
+            // Decay
+            this.scrollAccumulator *= 0.9;
+            this.scrollVelocity *= 0.72;
+            this.scrollMomentum *= 0.82;
+
+            if (Math.abs(this.scrollVelocity) < 0.01) {
+                this.scrollVelocity = 0;
+            }
+            if (this.scrollMomentum < 0.01) {
+                this.scrollMomentum = 0;
+            }
+        }
     }
 
     next() {
@@ -334,6 +454,70 @@ class OrthogonalDepthProgression {
         if (this.isTransitioning || index === this.currentIndex) return;
         if (index < 0 || index >= this.cards.length) return;
         this.transition(index);
+    }
+
+    setupKeyboardControls() {
+        this._keydownHandler = (event) => {
+            if (!this.isHeroInView) return;
+
+            switch (event.code) {
+                case 'ArrowDown':
+                case 'Space':
+                    if (this.currentIndex < this.cards.length - 1) {
+                        event.preventDefault();
+                        this.next();
+                    }
+                    break;
+                case 'ArrowUp':
+                    if (this.currentIndex > 0) {
+                        event.preventDefault();
+                        this.prev();
+                    }
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    this.goTo(0);
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    this.goTo(this.cards.length - 1);
+                    break;
+            }
+        };
+
+        document.addEventListener('keydown', this._keydownHandler);
+    }
+
+    enableScrollNavigation() {
+        this.scrollEnabled = true;
+    }
+
+    disableScrollNavigation() {
+        this.scrollEnabled = false;
+    }
+
+    destroy() {
+        // Cleanup scroll handler
+        if (this._wheelHandler) {
+            this.heroSection.removeEventListener('wheel', this._wheelHandler);
+        }
+
+        // Cleanup keyboard handler
+        if (this._keydownHandler) {
+            document.removeEventListener('keydown', this._keydownHandler);
+        }
+
+        // Cleanup intersection observer
+        if (this.heroSectionObserver) {
+            this.heroSectionObserver.disconnect();
+            this.heroSectionObserver = null;
+        }
+
+        // Cancel animation frame
+        if (this.scrollAnimationFrame) {
+            cancelAnimationFrame(this.scrollAnimationFrame);
+            this.scrollAnimationFrame = null;
+        }
     }
 
     transition(newIndex) {

@@ -202,8 +202,8 @@ class LandingController {
 
     bindHeroCardEvents() {
         // Previous/Next buttons
-        const prevBtn = document.getElementById('hero-prev');
-        const nextBtn = document.getElementById('hero-next');
+        const prevBtn = document.querySelector('.hero-nav-prev');
+        const nextBtn = document.querySelector('.hero-nav-next');
 
         if (prevBtn && this.orthogonalProgression) {
             prevBtn.addEventListener('click', () => {
@@ -220,7 +220,7 @@ class LandingController {
         }
 
         // Card indicator dots
-        const indicators = document.querySelectorAll('.card-indicator');
+        const indicators = document.querySelectorAll('.hero-indicator');
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 if (this.orthogonalProgression) {
@@ -248,7 +248,7 @@ class LandingController {
         this.currentCardIndex = newIndex;
 
         // Update indicators
-        document.querySelectorAll('.card-indicator').forEach((indicator, index) => {
+        document.querySelectorAll('.hero-indicator').forEach((indicator, index) => {
             if (index === newIndex) {
                 indicator.classList.add('active');
             } else {
