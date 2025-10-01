@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body data-page-state="hero-active" data-scroll-mode="orthogonal">
+<body data-active-service="maritime-ai">
 
     <!-- Holographic Background Field -->
     <div class="holographic-background-field">
@@ -34,7 +34,7 @@
                 <span class="brand-text">Clear Seas Solutions</span>
             </div>
             <div class="nav-links">
-                <a href="#orthogonal-hero" class="nav-link active">Services</a>
+                <a href="#hero" class="nav-link nav-link-home active">Services</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#portfolio" class="nav-link">Portfolio</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -43,16 +43,20 @@
         </div>
     </nav>
 
-    <!-- Orthogonal Hero Section -->
-    <section id="orthogonal-hero" class="hero-section">
-        <div class="hero-container" data-active-index="0">
+    <!-- Snap Scroll Container -->
+    <div class="snap-container">
 
-            <!-- Card 1: Maritime AI & Autonomous Systems -->
-            <div class="hero-card focused"
-                 data-service="maritime-ai"
-                 data-vib34d="quantum"
-                 data-card-index="0"
-                 data-destruction="quantum">
+        <!-- Hero Snap Section (Fullscreen with Horizontal Slider) -->
+        <section id="hero" class="hero-snap-section">
+            <div class="card-slider-wrapper">
+                <div class="card-slider" data-current-index="0">
+
+                    <!-- Card 1: Maritime AI & Autonomous Systems -->
+                    <div class="hero-card active"
+                         data-service="maritime-ai"
+                         data-vib34d="quantum"
+                         data-index="0"
+                         data-destruction="quantum">
 
                 <!-- VIB34D WebGL Visualizer -->
                 <canvas class="vib34d-tilt-canvas" id="vib34d-maritime"></canvas>
@@ -89,18 +93,18 @@
                     </button>
                 </div>
 
-                <!-- Card Glow Effects -->
-                <div class="card-glow card-glow-primary"></div>
-                <div class="card-glow card-glow-secondary"></div>
-                <div class="card-border-glow"></div>
-            </div>
+                        <!-- Card Glow Effects -->
+                        <div class="card-glow card-glow-primary"></div>
+                        <div class="card-glow card-glow-secondary"></div>
+                        <div class="card-border-glow"></div>
+                    </div>
 
-            <!-- Card 2: 4D Geometric Processing -->
-            <div class="hero-card background"
-                 data-service="4d-visualization"
-                 data-vib34d="holographic"
-                 data-card-index="1"
-                 data-destruction="holographic">
+                    <!-- Card 2: 4D Geometric Processing -->
+                    <div class="hero-card"
+                         data-service="4d-visualization"
+                         data-vib34d="holographic"
+                         data-index="1"
+                         data-destruction="holographic">
 
                 <canvas class="vib34d-tilt-canvas" id="vib34d-4d"></canvas>
                 <canvas class="vib34d-accent-canvas" id="vib34d-4d-accent"></canvas>
@@ -136,18 +140,18 @@
                 <div class="card-border-glow"></div>
             </div>
 
-            <!-- Card 3: AI Strategy & Consulting -->
-            <div class="hero-card background"
-                 data-service="ai-consulting"
-                 data-vib34d="quantum"
-                 data-card-index="2"
-                 data-destruction="quantum">
+                    <!-- Card 3: AI Strategy & Consulting -->
+                    <div class="hero-card"
+                         data-service="ai-consulting"
+                         data-vib34d="quantum"
+                         data-index="2"
+                         data-destruction="quantum">
 
-                <canvas class="vib34d-tilt-canvas" id="vib34d-ai"></canvas>
-                <canvas class="vib34d-accent-canvas" id="vib34d-ai-accent"></canvas>
-                <div class="portal-text-visualizer" id="portal-ai"></div>
+                        <canvas class="vib34d-tilt-canvas" id="vib34d-ai"></canvas>
+                        <canvas class="vib34d-accent-canvas" id="vib34d-ai-accent"></canvas>
+                        <div class="portal-text-visualizer" id="portal-ai"></div>
 
-                <div class="card-content">
+                        <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon ai-icon">
                             <svg viewBox="0 0 100 100" class="icon-svg">
@@ -174,23 +178,23 @@
                     </button>
                 </div>
 
-                <div class="card-glow card-glow-primary"></div>
-                <div class="card-glow card-glow-secondary"></div>
-                <div class="card-border-glow"></div>
-            </div>
+                        <div class="card-glow card-glow-primary"></div>
+                        <div class="card-glow card-glow-secondary"></div>
+                        <div class="card-border-glow"></div>
+                    </div>
 
-            <!-- Card 4: Data Architecture -->
-            <div class="hero-card background"
-                 data-service="data-architecture"
-                 data-vib34d="holographic"
-                 data-card-index="3"
-                 data-destruction="holographic">
+                    <!-- Card 4: Data Architecture -->
+                    <div class="hero-card"
+                         data-service="data-architecture"
+                         data-vib34d="holographic"
+                         data-index="3"
+                         data-destruction="holographic">
 
-                <canvas class="vib34d-tilt-canvas" id="vib34d-data"></canvas>
-                <canvas class="vib34d-accent-canvas" id="vib34d-data-accent"></canvas>
-                <div class="portal-text-visualizer" id="portal-data"></div>
+                        <canvas class="vib34d-tilt-canvas" id="vib34d-data"></canvas>
+                        <canvas class="vib34d-accent-canvas" id="vib34d-data-accent"></canvas>
+                        <div class="portal-text-visualizer" id="portal-data"></div>
 
-                <div class="card-content">
+                        <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon data-icon">
                             <svg viewBox="0 0 100 100" class="icon-svg">
@@ -216,23 +220,23 @@
                     </button>
                 </div>
 
-                <div class="card-glow card-glow-primary"></div>
-                <div class="card-glow card-glow-secondary"></div>
-                <div class="card-border-glow"></div>
-            </div>
+                        <div class="card-glow card-glow-primary"></div>
+                        <div class="card-glow card-glow-secondary"></div>
+                        <div class="card-border-glow"></div>
+                    </div>
 
-            <!-- Card 5: Custom Development -->
-            <div class="hero-card background"
-                 data-service="custom-development"
-                 data-vib34d="quantum"
-                 data-card-index="4"
-                 data-destruction="quantum">
+                    <!-- Card 5: Custom Development -->
+                    <div class="hero-card"
+                         data-service="custom-development"
+                         data-vib34d="quantum"
+                         data-index="4"
+                         data-destruction="quantum">
 
-                <canvas class="vib34d-tilt-canvas" id="vib34d-custom"></canvas>
-                <canvas class="vib34d-accent-canvas" id="vib34d-custom-accent"></canvas>
-                <div class="portal-text-visualizer" id="portal-custom"></div>
+                        <canvas class="vib34d-tilt-canvas" id="vib34d-custom"></canvas>
+                        <canvas class="vib34d-accent-canvas" id="vib34d-custom-accent"></canvas>
+                        <div class="portal-text-visualizer" id="portal-custom"></div>
 
-                <div class="card-content">
+                        <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon custom-icon">
                             <svg viewBox="0 0 100 100" class="icon-svg">
@@ -257,44 +261,45 @@
                     </button>
                 </div>
 
-                <div class="card-glow card-glow-primary"></div>
-                <div class="card-glow card-glow-secondary"></div>
-                <div class="card-border-glow"></div>
-            </div>
+                        <div class="card-glow card-glow-primary"></div>
+                        <div class="card-glow card-glow-secondary"></div>
+                        <div class="card-border-glow"></div>
+                    </div>
 
-        </div>
+                </div><!-- /.card-slider -->
+            </div><!-- /.card-slider-wrapper -->
 
-        <!-- Hero Navigation Controls -->
-        <div class="hero-controls">
-            <button class="hero-nav-btn hero-nav-prev" aria-label="Previous service">
+            <!-- Hero Navigation Controls -->
+            <button class="hero-nav-left" aria-label="Previous service">
                 <span class="nav-arrow">←</span>
             </button>
-            <div class="hero-indicators">
-                <div class="hero-indicator active" data-card-index="0"></div>
-                <div class="hero-indicator" data-card-index="1"></div>
-                <div class="hero-indicator" data-card-index="2"></div>
-                <div class="hero-indicator" data-card-index="3"></div>
-                <div class="hero-indicator" data-card-index="4"></div>
-            </div>
-            <button class="hero-nav-btn hero-nav-next" aria-label="Next service">
+            <button class="hero-nav-right" aria-label="Next service">
                 <span class="nav-arrow">→</span>
             </button>
-        </div>
 
-        <!-- Scroll Hint -->
-        <div class="scroll-hint">
-            <span class="scroll-hint-text">Scroll to navigate services</span>
-            <div class="scroll-arrow-container">
-                <div class="scroll-arrow">↓</div>
+            <!-- Indicator Dots -->
+            <div class="hero-indicators">
+                <div class="hero-indicator active" data-index="0"></div>
+                <div class="hero-indicator" data-index="1"></div>
+                <div class="hero-indicator" data-index="2"></div>
+                <div class="hero-indicator" data-index="3"></div>
+                <div class="hero-indicator" data-index="4"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- Dynamic Service Content (Changes as you scroll hero) -->
-    <section id="dynamic-content" class="dynamic-content-section" data-active-service="maritime-ai">
-        <div class="content-wrapper">
-            <!-- Maritime AI Content -->
-            <div class="service-content active" data-service="maritime-ai">
+            <!-- Scroll Hint (vertical) -->
+            <div class="scroll-hint-vertical">
+                <span class="scroll-hint-text">Swipe or scroll down to explore</span>
+                <div class="scroll-arrow-container">
+                    <div class="scroll-arrow arrow-down">↓</div>
+                </div>
+            </div>
+        </section><!-- /.hero-snap-section -->
+
+        <!-- Content Snap Sections (one per service) -->
+        <section class="content-snap-section active" data-service="maritime-ai">
+            <div class="content-wrapper">
+                <!-- Maritime AI Content -->
+                <div class="service-content" data-service="maritime-ai">
                 <div class="service-header">
                     <span class="service-badge">Autonomous Systems</span>
                     <h2 class="service-title">Maritime AI Navigation</h2>
@@ -314,10 +319,13 @@
                         <p>Dynamic route adjustment and optimization</p>
                     </div>
                 </div>
+                </div>
             </div>
+        </section>
 
-            <!-- 4D Visualization Content -->
-            <div class="service-content" data-service="4d-visualization">
+        <section class="content-snap-section" data-service="4d-visualization">
+            <div class="content-wrapper">
+                <div class="service-content" data-service="4d-visualization">
                 <div class="service-header">
                     <span class="service-badge">Higher Dimensions</span>
                     <h2 class="service-title">4D Polytopal Projection</h2>
@@ -337,10 +345,13 @@
                         <p>Quaternion-based transformations</p>
                     </div>
                 </div>
+                </div>
             </div>
+        </section>
 
-            <!-- AI Consulting Content -->
-            <div class="service-content" data-service="ai-consulting">
+        <section class="content-snap-section" data-service="ai-consulting">
+            <div class="content-wrapper">
+                <div class="service-content" data-service="ai-consulting">
                 <div class="service-header">
                     <span class="service-badge">Strategic Intelligence</span>
                     <h2 class="service-title">AI Transformation</h2>
@@ -360,10 +371,13 @@
                         <p>Unbiased ML framework evaluation</p>
                     </div>
                 </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Data Architecture Content -->
-            <div class="service-content" data-service="data-architecture">
+        <section class="content-snap-section" data-service="data-architecture">
+            <div class="content-wrapper">
+                <div class="service-content" data-service="data-architecture">
                 <div class="service-header">
                     <span class="service-badge">Infrastructure</span>
                     <h2 class="service-title">Scalable Data Systems</h2>
@@ -383,10 +397,13 @@
                         <p>Compliance and lineage tracking</p>
                     </div>
                 </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Custom Engineering Content -->
-            <div class="service-content" data-service="custom-engineering">
+        <section class="content-snap-section" data-service="custom-engineering">
+            <div class="content-wrapper">
+                <div class="service-content" data-service="custom-engineering">
                 <div class="service-header">
                     <span class="service-badge">Innovation</span>
                     <h2 class="service-title">Custom Engineering</h2>
@@ -406,11 +423,11 @@
                         <p>Profiling and speed improvements</p>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
+        <!-- About Section -->
     <section id="about" class="about-section">
         <div class="section-container">
             <div class="section-header">
@@ -700,11 +717,13 @@
         </div>
     </footer>
 
+    </div><!-- /.snap-container -->
+
     <!-- Scripts -->
     <script src="scripts/vib34d-geometric-tilt-system.js"></script>
-    <script src="scripts/orthogonal-hero-ultimate.js"></script>
+    <script src="scripts/snap-hero-system.js"></script>
     <script src="scripts/particle-field-system.js"></script>
-    <script src="scripts/landing-controller-ultimate.js"></script>
+    <script src="scripts/landing-controller-snap.js"></script>
 
 </body>
 </html>
